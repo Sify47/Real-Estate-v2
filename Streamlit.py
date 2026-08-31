@@ -1,4 +1,3 @@
-# main.py - نسخة محسنة مع تصميم متطور وتوصيات ديناميكية
 
 import streamlit as st
 import pandas as pd
