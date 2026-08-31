@@ -231,3 +231,58 @@ Plotly:
 └─────────────────────────────────────────────────────────────┘
 
   ```
+
+### 📖 Usage Guide
+```
+1. 🏠 Dashboard Tab
+View key metrics and market overview
+
+Explore dynamic insights and recommendations
+
+Analyze advanced visualizations
+
+Browse and filter property listings
+
+2. 📈 Market Insights Tab
+Analyze advanced statistics
+
+Explore location-based pricing
+
+View correlation matrices
+
+Identify outliers and anomalies
+
+Calculate ROI by location
+
+### 3. 🤖 ML Predictions Tab
+  Check model performance metrics
+
+  View feature importance analysis
+
+  Use interactive price predictor
+
+  Compare actual vs predicted prices
+
+  Get smart property recommendations
+
+### 4. 💰 Finance Calculator Tab
+  Enter your monthly income and expenses
+
+  Set purchase goals and financing preferences
+
+  View affordability analysis and savings plan
+
+  Get personalized property recommendations
+
+  Export results in multiple formats
+
+### 5. ⏰ Time Analysis Tab
+  View temporal trends and patterns
+
+  Analyze seasonality in the market
+
+  Track property types over time
+
+  Identify market cycles
+
+```
