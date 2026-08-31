@@ -1,4 +1,3 @@
-# api_scraper_final.py (النسخة المعدلة مع دعم dbt run)
 from fastapi import FastAPI, BackgroundTasks, HTTPException, Query
 from fastapi.responses import JSONResponse, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
