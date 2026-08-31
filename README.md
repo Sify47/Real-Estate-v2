@@ -235,13 +235,13 @@ Plotly:
 ### 📖 Usage Guide
 
 ### 1. 🏠 Dashboard Tab
--View key metrics and market overview
+  View key metrics and market overview
 
--Explore dynamic insights and recommendations
+  Explore dynamic insights and recommendations
 
--Analyze advanced visualizations
+  Analyze advanced visualizations
 
--Browse and filter property listings
+  Browse and filter property listings
 
 ### 2. 📈 Market Insights Tab
   Analyze advanced statistics
@@ -284,3 +284,13 @@ Plotly:
   Track property types over time
 
   Identify market cycles
+
+
+### Author
+### Mohamed Elsify
+```
+📧 Email: mohamedelsify231@example.com
+
+🔗 LinkedIn: linkedin.com/in/sify
+
+🐙 GitHub: github.com/sify47
