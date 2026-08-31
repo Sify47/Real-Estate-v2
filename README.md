@@ -154,3 +154,80 @@ n8n:
   - Workflow automation
   - Task scheduling
   - Integration orchestration
+```
+### Frontend & Visualization
+```yaml
+Streamlit:
+  - Interactive dashboard
+  - Real-time updates
+  - Responsive design
+
+Plotly:
+  - 3D visualizations
+  - Interactive charts
+  - Heatmaps and Radar charts
+Streamlit:
+  - Interactive dashboard
+  - Real-time updates
+  - Responsive design
+
+Plotly:
+  - 3D visualizations
+  - Interactive charts
+  - Heatmaps and Radar charts
+```
+
+### Architecture
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    Data Collection Layer                    │
+├─────────────────────────────────────────────────────────────┤
+│  Web Scrapers (Python + BeautifulSoup)                     │
+│  ├── PropertyFinder Egypt                                  │
+│  └── Bayut Egypt                                           │
+└────────────────────┬────────────────────────────────────────┘
+                     │
+┌────────────────────▼────────────────────────────────────────┐
+│                    Data Processing Layer                    │
+├─────────────────────────────────────────────────────────────┤
+│  ETL Pipeline (Python + Pandas)                            │
+│  ├── Data Cleaning                                         │
+│  ├── Feature Engineering                                   │
+│  └── Deduplication                                         │
+└────────────────────┬────────────────────────────────────────┘
+                     │
+┌────────────────────▼────────────────────────────────────────┐
+│                    Data Storage Layer                       │
+├─────────────────────────────────────────────────────────────┤
+│  PostgreSQL Database                                        │
+│  └── dbt Models (Transformation & Testing)                 │
+└────────────────────┬────────────────────────────────────────┘
+                     │
+┌────────────────────▼────────────────────────────────────────┐
+│                    Analytics & ML Layer                     │
+├─────────────────────────────────────────────────────────────┤
+│  Machine Learning (Scikit-learn)                           │
+│  ├── Random Forest (Price Prediction)                      │
+│  ├── Anomaly Detection                                     │
+│  └── Buy Score System                                      │
+└────────────────────┬────────────────────────────────────────┘
+                     │
+┌────────────────────▼────────────────────────────────────────┐
+│                    Presentation Layer                       │
+├─────────────────────────────────────────────────────────────┤
+│  Streamlit Dashboard                                        │
+│  ├── Interactive UI                                        │
+│  ├── Advanced Visualizations (Plotly)                      │
+│  └── Data Export                                           │
+└─────────────────────────────────────────────────────────────┘
+                     │
+┌────────────────────▼────────────────────────────────────────┐
+│                    Automation Layer                         │
+├─────────────────────────────────────────────────────────────┤
+│  n8n Workflows                                              │
+│  ├── Automated Scraping                                    │
+│  ├── Data Processing                                       │
+│  └── Telegram Notifications                                │
+└─────────────────────────────────────────────────────────────┘
+
+  ```
