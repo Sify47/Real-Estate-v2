@@ -1,0 +1,415 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "=http://127.0.0.1:8000{{ $json.check_status_url }}",
+        "options": {}
+      },
+      "id": "9a85136d-1a52-467e-8a61-bb6c19a7293c",
+      "name": "HTTP Request - Get Data",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        304,
+        -256
+      ]
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "value": "sify_sc",
+          "mode": "list",
+          "cachedResultName": "sify_sc"
+        },
+        "table": {
+          "__rl": true,
+          "value": "scraped_data_raw",
+          "mode": "list",
+          "cachedResultName": "scraped_data_raw"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {
+            "Bedrooms": "={{ $json.Bedrooms }}",
+            "Bathrooms": "={{ $json.Bathrooms }}",
+            "PropertyType": "={{ $json.PropertyType }}",
+            "Link": "={{ $json.Link }}",
+            "Title": "={{ $json.Title }}",
+            "Price": "={{ $json.Price }}",
+            "Location": "={{ $json.Location }}",
+            "State": "={{ $json.State }}",
+            "Area": "={{ $json.Area }}",
+            "Down_Payment": "={{ $json.Down_Payment }}",
+            "Source": "={{ $json.Source }}",
+            "Scrape_Date": "={{ $json.Scrape_Date }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "PropertyType",
+              "displayName": "PropertyType",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Link",
+              "displayName": "Link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Price",
+              "displayName": "Price",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Location",
+              "displayName": "Location",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "State",
+              "displayName": "State",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Area",
+              "displayName": "Area",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Bedrooms",
+              "displayName": "Bedrooms",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Bathrooms",
+              "displayName": "Bathrooms",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Down_Payment",
+              "displayName": "Down_Payment",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Source",
+              "displayName": "Source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Scrape_Date",
+              "displayName": "Scrape_Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.7,
+      "position": [
+        528,
+        -256
+      ],
+      "id": "d88d47ea-0cee-45a3-93bc-8594e78718b5",
+      "name": "Insert rows in a table",
+      "credentials": {
+        "postgres": {
+          "id": "KNxznqONb7EcY4Ys",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://127.0.0.1:8000/api/dbt/run",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "command",
+              "value": "run"
+            },
+            {
+              "name": "project_dir",
+              "value": "E:\\\\N8N\\\\test"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 600000
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        752,
+        -256
+      ],
+      "id": "80e324a5-3459-4285-bef8-3640a6546cbe",
+      "name": "HTTP Request",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "value": "sify_sc_marts",
+          "mode": "list",
+          "cachedResultName": "sify_sc_marts"
+        },
+        "table": {
+          "__rl": true,
+          "value": "daily_quality_report",
+          "mode": "list",
+          "cachedResultName": "daily_quality_report"
+        },
+        "limit": 1,
+        "sort": {
+          "values": [
+            {
+              "column": "scraped_date",
+              "direction": "DESC"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.7,
+      "position": [
+        976,
+        -256
+      ],
+      "id": "fb4d2cd8-686f-4b13-98b3-c1bca91d9d13",
+      "name": "Select rows from a table",
+      "credentials": {
+        "postgres": {
+          "id": "KNxznqONb7EcY4Ys",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "8920048464",
+        "text": "=تقارير اليوم\n\nعدد العقارات : {{ $json.total_properties }}\nمتوسط السعر : {{ $json.avg_price }}\nمتوسط المساحه : {{ $json.avg_area }}\nالانحراف العدد ({{ $json.historical_avg_count }} - {{ $json.historical_std_count }})\n\nالانحراف السعر ({{ $json.historical_avg_price }} - {{ $json.historical_std_price }})\n{{ $json.alert_status }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1200,
+        -256
+      ],
+      "id": "1c09b895-708f-4455-9ca8-c659c523f6f9",
+      "name": "Send a text message",
+      "webhookId": "15c94966-e66b-4d96-9ba2-340ba612864c",
+      "executeOnce": false,
+      "credentials": {
+        "telegramApi": {
+          "id": "LHj2CloXExv8x1db",
+          "name": "Telegram account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://127.0.0.1:8000/scrape?propertyfinder_pages=20",
+        "options": {}
+      },
+      "id": "1ce21282-64bc-472c-ba70-047b7cd3b1ee",
+      "name": "HTTP Request - Psot Scrape",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        80,
+        -256
+      ]
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -144,
+        -256
+      ],
+      "id": "531b0da9-6828-4d3d-8552-687ba3f98e91",
+      "name": "When clicking ‘Execute workflow’"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "HTTP Request - Get Data": {
+      "main": [
+        [
+          {
+            "node": "Insert rows in a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert rows in a table": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request - Psot Scrape": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request - Get Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request - Psot Scrape",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "46e6a568-7ea3-465e-a6c9-6d682a94934d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "31229d50db0398214e0103e20f1608487029a84404977e6376b273567d030839"
+  },
+  "nodeGroups": [],
+  "id": "TfcL3JKUpmVksVCD",
+  "tags": []
+}
