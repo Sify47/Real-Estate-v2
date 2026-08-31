@@ -233,26 +233,26 @@ Plotly:
   ```
 
 ### 📖 Usage Guide
-```
-1. 🏠 Dashboard Tab
-View key metrics and market overview
 
-Explore dynamic insights and recommendations
+### 1. 🏠 Dashboard Tab
+-View key metrics and market overview
 
-Analyze advanced visualizations
+-Explore dynamic insights and recommendations
 
-Browse and filter property listings
+-Analyze advanced visualizations
 
-2. 📈 Market Insights Tab
-Analyze advanced statistics
+-Browse and filter property listings
 
-Explore location-based pricing
+### 2. 📈 Market Insights Tab
+  Analyze advanced statistics
 
-View correlation matrices
+  Explore location-based pricing
 
-Identify outliers and anomalies
+  View correlation matrices
 
-Calculate ROI by location
+  Identify outliers and anomalies
+
+  Calculate ROI by location
 
 ### 3. 🤖 ML Predictions Tab
   Check model performance metrics
@@ -284,5 +284,3 @@ Calculate ROI by location
   Track property types over time
 
   Identify market cycles
-
-```
