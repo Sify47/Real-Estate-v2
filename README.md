@@ -5,20 +5,20 @@ An end-to-end data analytics and decision support platform for the Egyptian real
 ---
 
 ## 📌 Table of Contents
-- [Overview](#overview)
-- [Problem Statement](#problem-statement)
-- [Solution](#solution)
-- [Key Features](#key-features)
-- [Tech Stack](#tech-stack)
-- [Architecture](#architecture)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Performance Metrics](#performance-metrics)
-- [Future Enhancements](#future-enhancements)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+- Overview
+- Problem Statement
+- Solution
+- Key Features
+- Tech Stack
+- Architecture
+- Installation
+- Usage
+- Project Structure
+- Performance Metrics
+- Future Enhancements
+- Contributing
+- License
+- Contact
 
 ---
 
@@ -30,7 +30,7 @@ An end-to-end data analytics and decision support platform for the Egyptian real
 - 🕸️ Automated data collection from multiple sources
 - 🤖 AI-powered price prediction (80%+ accuracy)
 - 💰 Smart finance calculator with savings planning
-- 📊 Interactive dashboard with advanced visualizations
+- 📊 Interactive dashboards and Looker-powered visualizations
 - ⚙️ Fully automated ETL pipeline (n8n + dbt)
 - 📱 Real-time notifications via Telegram
 
@@ -80,9 +80,9 @@ Our platform provides a complete ecosystem for real estate analysis:
 - Debt-to-income ratio assessment
 
 ### 4. 📈 Interactive Dashboard
-- Modern, responsive UI with Streamlit
-- Advanced visualizations (3D, Heatmaps, Radar)
-- Dynamic filtering with real-time updates
+- Looker for modeling and visualization (LookML, Explores, Embedded Dashboards)
+- Advanced visualizations (Heatmaps, Radar, 3D via Plotly exports where needed)
+- Dynamic filtering with real-time/near-real-time updates
 - Data export (CSV, Excel, JSON)
 
 ### 5. ⚙️ Workflow Automation
@@ -99,7 +99,7 @@ Our platform provides a complete ecosystem for real estate analysis:
 - **Dynamic Metrics**: Total properties, average price, area analysis
 - **Market Status**: Stability indicators and trend analysis
 - **Smart Insights**: Real-time opportunities and risks identification
-- **Visual Analytics**: Heatmaps, radar charts, 3D scatter plots
+- **Visual Analytics**: Heatmaps, radar charts, 3D scatter plots (via Plotly exports)
 - **Property Listings**: Searchable and filterable property database
 
 ### 📈 Market Insights
@@ -112,7 +112,7 @@ Our platform provides a complete ecosystem for real estate analysis:
 ### 🤖 ML Predictions
 - **Price Forecasting**: Random Forest model with 80%+ accuracy
 - **Feature Importance**: Identify key price drivers (area, location, type)
-- **Interactive Predictor**: Real-time price estimation tool
+- **Interactive Predictor**: Real-time price estimation tool (via API / embedded UI)
 - **Model Performance**: R² score, MAE, and error analysis
 - **Smart Recommendations**: AI-powered property suggestions
 
@@ -157,25 +157,18 @@ n8n:
 ```
 ### Frontend & Visualization
 ```yaml
-Streamlit:
-  - Interactive dashboard
-  - Real-time updates
-  - Responsive design
+Looker:
+  - LookML modeling and Explores
+  - Scheduled and Embedded Dashboards
+  - Governance and access control
 
 Plotly:
   - 3D visualizations
   - Interactive charts
-  - Heatmaps and Radar charts
-Streamlit:
-  - Interactive dashboard
-  - Real-time updates
-  - Responsive design
-
-Plotly:
-  - 3D visualizations
-  - Interactive charts
-  - Heatmaps and Radar charts
+  - Heatmaps and Radar charts (exported or used in generated assets)
 ```
+
+---
 
 ### Architecture
 ```
@@ -215,9 +208,9 @@ Plotly:
 ┌────────────────────▼────────────────────────────────────────┐
 │                    Presentation Layer                       │
 ├─────────────────────────────────────────────────────────────┤
-│  Streamlit Dashboard                                        │
-│  ├── Interactive UI                                        │
-│  ├── Advanced Visualizations (Plotly)                      │
+│  Looker Dashboard                                           │
+│  ├── Interactive UI (LookML Explores)                      │
+│  ├── Advanced Visualizations (Plotly exports)              │
 │  └── Data Export                                           │
 └─────────────────────────────────────────────────────────────┘
                      │
@@ -230,7 +223,7 @@ Plotly:
 │  └── Telegram Notifications                                │
 └─────────────────────────────────────────────────────────────┘
 
-  ```
+```
 
 ### 📖 Usage Guide
 
